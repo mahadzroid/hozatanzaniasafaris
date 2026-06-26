@@ -18,3 +18,13 @@ desktop.ini
 *.njsproj
 *.sln
 *.sw?
+
+# WordPress core and plugin files (not needed for static site)
+wp-includes/
+wp-content/plugins/
+wp-content/themes/
+wp-content/upgrade/
+wp-content/cache/
+
+# Keep only necessary files
+!wp-content/uploads/
