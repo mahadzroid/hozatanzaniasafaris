@@ -60,6 +60,18 @@
 		max-width: none !important;
 		width: auto !important;
 	}
+	/* HAMBURGER MENU FIX */
+	.wp-block-navigation__responsive-container {
+		background-color: #111 !important;
+		color: #fff !important;
+	}
+	.wp-block-navigation__responsive-container .wp-block-navigation-item__label {
+		color: #fff !important;
+	}
+	.wp-block-navigation__responsive-container-close,
+	.wp-block-navigation__responsive-container-open {
+		color: #fff !important;
+	}
 	</style>
 	
 
@@ -2214,37 +2226,7 @@ calendarData.forEach(row => {
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/atooratravelagency/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
 
-<!-- JavaScript to stop Tawk.to from breaking website layout -->
-<script>
-(function() {
-    // Block any attempts to modify body styles
-    var originalSetAttribute = Element.prototype.setAttribute;
-    Element.prototype.setAttribute = function(name, value) {
-        if (this === document.body && (name === 'style' || name === 'margin-right')) {
-            return; // Block any style changes to body
-        }
-        return originalSetAttribute.call(this, name, value);
-    };
-    
-    // Use MutationObserver to watch for style changes on body
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.target === document.body && mutation.attributeName === 'style') {
-                // Reset body styles to our fixed ones
-                document.body.style.marginRight = '0px';
-                document.body.style.overflow = 'visible';
-            }
-        });
-    });
-    
-    observer.observe(document.body, { attributes: true });
-    
-    // Set initial styles with extra protection
-    document.body.style.marginRight = '0px';
-    document.body.style.overflow = 'visible';
-    document.body.style.width = '100%';
-})();
-</script>
+
 <!--Start of Tawk.to Script (0.9.3)--> (0.9.3)-->
 <script id="tawk-script" type="text/javascript">
 var Tawk_API = Tawk_API || {};
