@@ -78,6 +78,17 @@
 	.wp-block-navigation__responsive-container {
 		background-color: #111 !important;
 		color: #fff !important;
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 99999;
+	}
+	.wp-block-navigation__responsive-container.is-menu-open,
+	.wp-block-navigation__responsive-container.has-modal-open {
+		display: flex;
 	}
 	.wp-block-navigation__responsive-container .wp-block-navigation-item__label {
 		color: #fff !important;
@@ -85,6 +96,42 @@
 	.wp-block-navigation__responsive-container-close,
 	.wp-block-navigation__responsive-container-open {
 		color: #fff !important;
+		cursor: pointer;
+		background: none;
+		border: none;
+		padding: 0;
+	}
+	/* Show hamburger button on mobile only */
+	@media (min-width: 782px) {
+		.wp-block-navigation__responsive-container-open {
+			display: none !important;
+		}
+		.wp-block-navigation__container {
+			display: flex !important;
+		}
+	}
+	@media (max-width: 781px) {
+		.wp-block-navigation__container {
+			flex-direction: column !important;
+			gap: 1.5rem !important;
+			padding: 2rem !important;
+		}
+		.wp-block-navigation-item__label {
+			font-size: 1.5rem !important;
+		}
+		.wp-block-navigation__responsive-dialog {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		.wp-block-navigation__responsive-container-close {
+			position: absolute;
+			top: 2rem;
+			right: 2rem;
+		}
 	}
 	</style>
 	
@@ -414,7 +461,22 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 <h1 class="has-link-color wp-elements-e24c80986e13ab3d929b38d6b46e3019 wp-block-site-title has-text-color has-white-color has-medium-font-size"><a href="./" target="_self" rel="home" aria-current="page">hozatanzaniasafaris</a></h1></div>
 
 
-<nav class="has-text-color has-vivid-green-cyan-color has-medium-font-size items-justified-right wp-block-navigation is-horizontal is-content-justification-right is-layout-flex wp-container-core-navigation-is-layout-976184e4 wp-block-navigation-is-layout-flex" aria-label="Menu"><ul class="wp-block-navigation__container has-text-color has-vivid-green-cyan-color has-medium-font-size items-justified-right wp-block-navigation"><li class="has-medium-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="./gallary/"><span class="wp-block-navigation-item__label">Gallary</span></a></li><li class="has-medium-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="./services/"><span class="wp-block-navigation-item__label">Services</span></a></li><li class="has-medium-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="./contact-as/"><span class="wp-block-navigation-item__label">Contact as</span></a></li></ul></nav></div>
+<nav class="has-text-color has-vivid-green-cyan-color has-medium-font-size is-responsive items-justified-right wp-block-navigation is-content-justification-right is-layout-flex wp-container-core-navigation-is-layout-976184e4 wp-block-navigation-is-layout-flex" aria-label="Menu" data-wp-interactive="core/navigation" data-wp-context='{"overlayOpenedBy":{"click":false,"hover":false,"focus":false},"type":"overlay","roleAttribute":"","ariaLabel":"Menu"}'><button aria-haspopup="dialog" aria-label="Open menu" class="wp-block-navigation__responsive-container-open" data-wp-on--click="actions.openMenuOnClick" data-wp-on--keydown="actions.handleMenuKeydown"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7.5h16v1.5H4z"></path><path d="M4 15h16v1.5H4z"></path></svg></button>
+	<div class="wp-block-navigation__responsive-container" id="modal-1" data-wp-class--has-modal-open="state.isMenuOpen" data-wp-class--is-menu-open="state.isMenuOpen" data-wp-watch="callbacks.initMenu" data-wp-on--keydown="actions.handleMenuKeydown" data-wp-on--focusout="actions.handleMenuFocusout" tabindex="-1">
+		<div class="wp-block-navigation__responsive-close" tabindex="-1">
+			<div class="wp-block-navigation__responsive-dialog" data-wp-bind--aria-modal="state.ariaModal" data-wp-bind--aria-label="state.ariaLabel" data-wp-bind--role="state.roleAttribute">
+				<button aria-label="Close menu" class="wp-block-navigation__responsive-container-close" data-wp-on--click="actions.closeMenuOnClick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="m13.06 12 6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z"></path></svg></button>
+				<div class="wp-block-navigation__responsive-container-content" data-wp-watch="callbacks.focusFirstElement" id="modal-1-content">
+					<ul class="wp-block-navigation__container has-text-color has-vivid-green-cyan-color has-medium-font-size items-justified-right wp-block-navigation">
+						<li class="has-medium-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="./gallary/"><span class="wp-block-navigation-item__label">Gallary</span></a></li>
+						<li class="has-medium-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="./services/"><span class="wp-block-navigation-item__label">Services</span></a></li>
+						<li class="has-medium-font-size wp-block-navigation-item wp-block-navigation-link"><a class="wp-block-navigation-item__content" href="./contact-as/"><span class="wp-block-navigation-item__label">Contact as</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav></div>
 
 
 
@@ -1744,6 +1806,44 @@ var ElementPackConfig = {"ajaxurl":"/wp-admin/admin-ajax.php","nonce":"833fa7f2b
 /*! This file is auto-generated */
 const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
 //# sourceURL=/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<!-- Custom Hamburger Menu Functionality -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuOpenBtn = document.querySelector('.wp-block-navigation__responsive-container-open');
+  const menuCloseBtn = document.querySelector('.wp-block-navigation__responsive-container-close');
+  const menuContainer = document.querySelector('.wp-block-navigation__responsive-container');
+  
+  if (menuOpenBtn && menuContainer) {
+    // Open menu
+    menuOpenBtn.addEventListener('click', function() {
+      menuContainer.classList.add('has-modal-open', 'is-menu-open');
+      document.body.style.overflow = 'hidden';
+    });
+    
+    // Close menu
+    menuCloseBtn.addEventListener('click', function() {
+      menuContainer.classList.remove('has-modal-open', 'is-menu-open');
+      document.body.style.overflow = '';
+    });
+    
+    // Close menu when clicking outside
+    menuContainer.addEventListener('click', function(e) {
+      if (e.target === menuContainer || e.target.classList.contains('wp-block-navigation__responsive-close')) {
+        menuContainer.classList.remove('has-modal-open', 'is-menu-open');
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Close menu with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && menuContainer.classList.contains('is-menu-open')) {
+        menuContainer.classList.remove('has-modal-open', 'is-menu-open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+});
 </script>
 </body>
 </html>
