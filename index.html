@@ -76,7 +76,7 @@
 	}
 	/* HAMBURGER MENU FIX */
 	.wp-block-navigation__responsive-container {
-		background-color: #111 !important;
+		background: linear-gradient(135deg, #1a0c06 0%, #0d0804 100%) !important;
 		color: #fff !important;
 		display: none;
 		position: fixed;
@@ -91,11 +91,17 @@
 		display: flex;
 	}
 	.wp-block-navigation__responsive-container .wp-block-navigation-item__label {
-		color: #fff !important;
+		color: #f5edd8 !important;
+		white-space: nowrap !important;
+		font-family: "Cormorant Garamond", serif !important;
+		font-size: 2rem !important;
+		font-weight: 500 !important;
+		letter-spacing: 0.1em !important;
+		text-transform: uppercase !important;
 	}
 	.wp-block-navigation__responsive-container-close,
 	.wp-block-navigation__responsive-container-open {
-		color: #fff !important;
+		color: #d4a843 !important;
 		cursor: pointer;
 		background: none;
 		border: none;
@@ -113,11 +119,8 @@
 	@media (max-width: 781px) {
 		.wp-block-navigation__container {
 			flex-direction: column !important;
-			gap: 1.5rem !important;
-			padding: 2rem !important;
-		}
-		.wp-block-navigation-item__label {
-			font-size: 1.5rem !important;
+			gap: 2.5rem !important;
+			padding: 3rem !important;
 		}
 		.wp-block-navigation__responsive-dialog {
 			width: 100%;
@@ -131,6 +134,19 @@
 			position: absolute;
 			top: 2rem;
 			right: 2rem;
+			width: 50px;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.wp-block-navigation__responsive-container-close svg {
+			width: 36px !important;
+			height: 36px !important;
+		}
+		.wp-block-navigation__responsive-container-open svg {
+			width: 32px !important;
+			height: 32px !important;
 		}
 	}
 	</style>
